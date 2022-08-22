@@ -27,7 +27,6 @@ asn1crypto==1.5.1
 async-timeout==4.0.1
 asysocks==0.1.2
 attrs==21.2.0
-autobahn==22.1.1
 Automat==20.2.0
 Babel==2.8.0
 backcall==0.2.0
@@ -55,7 +54,6 @@ charset-normalizer==2.0.6
 cheroot==8.6.0+ds1
 CherryPy==18.8.0
 cherrypy-cors==1.6
-chrome-gnome-shell==0.0.0
 cli-helpers==2.2.1
 click==8.0.3
 click-plugins==1.1.1
@@ -64,15 +62,12 @@ colorama==0.4.5
 commonmark==0.9.1
 configobj==5.0.6
 constantly==15.1.0
-crackmapexec==5.2.2
 crispy-bootstrap5==0.6
 cryptography==3.4.8
 cupshelpers==1.0
 cycler==0.11.0
-Cython==0.29.30
 dataclasses-json==0.5.7
 dbus-python==1.2.18
-debtags==2.1
 decorator==4.4.2
 defusedxml==0.7.1
 Deprecated==1.2.13
@@ -98,14 +93,10 @@ ecdsa==0.18.0
 email-validator==1.1.2
 et-xmlfile==1.0.1
 ExifRead==3.0.0
-faraday-agent-dispatcher==2.2.0
 faraday-agent-parameters-types==1.0.3
-faraday-cli==2.1.6
 faraday-plugins==1.6.8
-faradaysec==4.0.4
 fastapi==0.74.1
 feedparser==6.0.8
-fierce==1.5.0
 filedepot==0.5.2
 filelock==3.7.1
 filteralchemy==0.1.0
@@ -372,7 +363,7 @@ simple-rest-client==1.1.3
 simplejson==3.17.6
 simplekv==0.13.0
 six==1.16.0
-slowapi==0.1.4  
+slowapi==0.1.4
 smmap==5.0.0
 smoke-zephyr==2.0.1
 sniffio==1.2.0
@@ -439,10 +430,8 @@ Werkzeug==2.0.2
 wfuzz==3.1.0
 whitenoise==6.2.0
 whois==0.8
-wifite==2.6.0
 winacl==0.1.2
 wrapt==1.13.3
-wsaccel==0.6.3
 wsproto==1.1.0
 WTForms==2.2.1
 xcffib==0.11.1
