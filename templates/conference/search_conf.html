@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags%}
+{% block title %}search{% endblock %}
+{% block content %}
+
+<div class="container pt-4 mt-5 text-light">
+
+   {% if a %}
+
+
+    
+
+    <div class="container pt-2 mt-5 ">
+        <h1> Join Conference here!</h1>
+        <div class="row">
+        <div class="col pt-2">
+            {% for conference in st %}
+   
+
+    <a style="text-decoration: none;" href="{% url 'conference-detail' conference.id %}">
+        <div class=" mt-3 p-3 bg-dark text-white rounded-5 ">
+        <h1>{{ conference.title|capfirst }}</h1>
+        <p>{{ conference.venue }}</p>
+        
+        
+                                                
+<div class="spinner-grow text-light"></div>
+<div class="spinner-grow text-primary"></div>
+<div class="spinner-grow text-success"></div>
+<div class="spinner-grow text-info"></div>
+<div class="spinner-grow text-warning"></div>
+<div class="spinner-grow text-danger"></div>
+<div class="spinner-grow text-warning"></div>
+<div class="spinner-grow text-dark"></div>
+<div class="spinner-grow text-light"></div>
+      </div></a>
+   
+
+
+    {% endfor %}
+        </div>
+    
+  
+
+    {% else%}
+
+    You search Nothing
+
+    {%endif%}
+
+
+</div>
+
+{% endblock%}

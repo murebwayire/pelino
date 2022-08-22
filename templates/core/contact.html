@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+    Contact
+{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-4 pb-4 mt-5 " style="background-image:url('{% static 'images/mas.jpg' %}')">
+       
+        <div class="row">
+            <div class="col-sm">
+            
+            </div>
+            <div class="col-sm-5 m-3 ">
+                 
+                <form action="" method="post" class="bg-light  rounded-4 pe-3 ps-3 pb-3" >
+                   <div class="  pb-3"><h1>Contact Us</h1></div> 
+
+                    {% csrf_token%}
+                    {{ form }}
+                    
+                    <button type="submit" class="btn  btn-secondary">Send</button>      
+        
+                </form>
+            </div>
+            <div class="col-sm"></div>
+       
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags%}
+{% load static%}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid text-center text-light bg-secondary pt-2 mt-5 ">
+        <div class="row pt-5 pb-4 ">
+            <h1><h1>{{ conference.title|capfirst  }}</h1></h1><br><br><br>
+                 <p1>A one-Day Comference About All Thing of {{ conference.title }}</p1>
+                 <p> Hostered in {{ conference.venue }}</p>
+                 <p>From {{ conference.start_date }}   To {{ conference.end_date }}</p>
+               
+            <br><br>
+            <div class="w-30  " >
+             
+                <button class="btn btn-dark " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                 Register
+                </button>
+                
+            <button  type="button" class="btn btn-danger"><a class="text-light text-decoration-none" href="#speaker">See Speaker</a></button>
+            </div>
+        </div>
+          </div>
+        </div>
+
+        
+        <div class="container-fluid text-light ">
+          <div class="row pt-4 pb-4">
+           <div class="col-md-1"></div>
+           <div class="col-md">
+           <h2>Expert Speakers</h2>
+         <p>
+           The term business refers to an organization or enterprising entity engaged in commercial, 
+           <p>industrial, or professional activities. 
+               Business also refers to the efforts and activities undertaken by individuals to produce and sell goods and services for profit.
+           </p>
+         </p>
+           </div>
+
+           <div class="col-md">
+           <h2>About Full Stack Conf </h2>
+
+            <img src="../albertdjango/Albertmus123.github.io/web-styling-Albertmus123/Capture1.PNG" alt="" width="300px" >
+           <p>
+           A business is defined as an organization or enterprising entity engaged in commercial, industrial, or professional activities.
+       </p>
+       </div>
+           <div class="col-md">
+           <h2 >What You Will Learn</h2>
+           
+           <ul class="list-group" >
+           
+               <li class="list-group-item"><b>MongoDb:</b> NoSql Database</li>
+               <li class="list-group-item"><b>Express:</b> Framework For Node</li>
+               <li class="list-group-item"><b>React:</b> JavaScript Library</li>
+               <li class="list-group-item"><b>ES2015:</b> Latest JavaScript Version</li>
+               <li class="list-group-item"><b>Babel:</b>JavaScript Compile</li>
+             </ul>
+           </div>
+           <div class="col-md-1">
+           </div>
+       </div>
+            </div>
+
+        <div id="speaker" class="container pt-5 pb-4 text-center text-light">
+  <div class="row">
+    <h2  >Speakers</h2>
+
+  </div>
+</div>
+
+
+  <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
+  <div class="container ">
+    <div class="row mt-5 pt-4">
+      
+      {% for item in conference.speakers.all %}
+      <div class="col-md-4 pt-4">
+    <div class="card">
+       <div class="img">
+          <img src="{{item.profile_picture.url}}" height="300px">
+       </div>
+       <div class="top-text">
+          <div class="name  pb-4">
+            Names : {{item.name}}
+          </div>
+          <p>{{item.description}}</p>
+          
+       </div>
+
+
+       <div class="bottom-text">
+          <div class="text">
+            <input type="button" value="Read more!" class="btn btn-danger">
+          </div>
+         
+       </div>
+      
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+
+
+
+        <div class="container pt-5 pb-4 text-center text-light">
+          <div class="row">
+            <h2>Schedule</h2>
+        
+          </div>
+        </div>
+        <div class="container pt-4 pb-4 text-light">
+          <div class="row">
+            {% for j in schedule %}
+            
+        <ol class="list-group ">
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">Keynote:  {{j.topic}}</div>
+             <p style="text-align: left;">{{j.speaker.name}}</p>
+            </div>
+            <span class="badge bg-primary rounded-pill">{{j.start_time}}</span> <span class="badge bg-danger rounded-pill">End At</span> <span class="badge bg-primary rounded-pill">{{j.end_time}}</span>
+          </li>
+        </ol>
+            {% endfor%}
+
+          </div>
+         
+
+        </div>
+        
+        
+        </div>
+
+        <div class="container-fluid  pt-4 pb-4 ">
+          <!-- Button trigger modal -->
+         <div class="container text-center">
+<button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ Don't miss Out Registration!
+</button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Register</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <form action="" method="post">
+      {% csrf_token %}
+
+      {{ form|crispy}}
+     
+     
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-dark">Register</button>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+      </div>
+      
+    
+      
+      <!--         =====================================================================-->
+      
+      
+      <div class="container-fluid pt-4 pb-4 bg-secondary">
+      <div class="row text-light"  >
+      
+          <div class="col-md-1" >
+      
+          </div>
+          <div class="col-md">
+      <h3>About Paragraph</h3>
+      <p>You still need to do your market research and develop a business plan before anything else. Once that's done, choose a name and structure for your business, then file any paperwork to register your organization.</p>
+          </div>
+      
+          <div class="col-md p-1">
+              <p class="mt-4">Stay Up to Date on Paragraph Conference </p>
+      
+             <form class="row g-3 ">
+        <div class="col-auto ">
+          <input type="text" class="form-control" >
+        </div>
+        <div class="col-auto  ">
+          <button type="submit" class="btn btn-dark mb-3">Sign up</button>
+        </div>
+      </form>
+      
+          </div>
+          <div class="col-md-1">
+      
+          </div>
+      
+      </div>
+          </div>
+      
+      
+      
+              <!--         =====================================================================-->
+      
+              <div class="container-fluid pt-4 pb-4 text-light bg-secondary">
+      <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md">
+              Community Track
+              <div class="btn-group dropup">
+                  <button type="button" class="btn btn-dark">
+                    Other Conf
+                  </button>
+                  <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <!-- Dropdown menu links -->
+                    {% for i in all %}
+                      <li><a class="dropdown-item" href="{% url 'conference-detail' i.id %}">{{ i.title }}</a></li>
+                    
+                    {% endfor%}
+                  </ul>
+                </div>
+          </div>
+          <div class="col-md">
+              &copy Albert&clemance @2022
+          </div>
+          <div class="col-md-1"></div>
+      </div>
+              </div>
+{% endblock %}

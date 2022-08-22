@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static%}
+{% load crispy_forms_tags %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">   
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                
+                <form method="post" action="" class=" m-3 p-4 bg-light rounded-4">
+                    {% csrf_token %}
+                    <div class="pt-3 pb-3">
+                        <img src="{% static 'images/albert.png' %}" alt="" srcset="" height="180px">
+                    </div>
+                   <div class="input-field">
+                      <input type="text" required name="username">
+                      <label>Email or Username</label>
+                   </div>
+                   <div class="input-field">
+                      <input class="pswrd" type="password" name="password" required>
+                      <span class="show">SHOW</span>
+                      <label>Password</label>
+                   </div>
+                   <div class="button">
+                      <div class="inner"></div>
+                      <button type="submit" >LOGIN</button>
+                   </div>
+                </form>
+                <script>
+                    var input = document.querySelector('.pswrd');
+                    var show = document.querySelector('.show');
+                    show.addEventListener('click', active);
+                    function active(){
+                      if(input.type === "password"){
+                        input.type = "text";
+                        show.style.color = "#1DA1F2";
+                        show.textContent = "HIDE";
+                      }else{
+                        input.type = "password";
+                        show.textContent = "SHOW";
+                        show.style.color = "#111";
+                      }
+                    }
+                 </script>
+            </div>
+            <div class="col-sm-4"></div>
+
+       
+        </div>
+     </div>
+  
+{% endblock %}

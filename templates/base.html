@@ -1,0 +1,91 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/6.1.2/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>{% block title %}{% endblock %} - Conference App</title>
+   
+</head>
+<body class="bg-dark" style="background: linear-gradient(25deg, #8600b3 50%, #29242b 50%);">
+  <div class="a">
+  <Style>
+    
+ .navbar  a:hover{
+  background-color: #c17878;
+
+ }
+
+
+
+  </Style>
+    <nav class="navbar navbar-expand-lg navbar-dark  bg-dark fixed-top rounded-5">
+  <div class="container">
+    <div class="navbar-brand" >Conf App</div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active " href="{% url 'home' %}"><i class="fas fa-home"></i>   Home
+{#            <span class="visually-hidden">(current)</span>#}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'conferences' %}"><i class="fas fa-users"></i> Conferences</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'contact' %}"><i class="fas fa-envelope"></i>  Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'about' %}"><i class="fas fa-angle-double-down"></i> About</a>
+        </li>
+
+          {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown"> 
+                  <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{ request.user.username }}
+                  </a>
+                  <ul class="dropdown-menu bg-dark text-light">
+                    <li><a class="dropdown-item text-light" href="{% url 'conf' %}"><i class="fas fa-tasks"></i> Manage</a></li>
+                    <li><a class="dropdown-item text-light" href="{% url 'register_user' %}"><i class="fas fa-cog fa-1x "></i>  Settings</a></li>
+                    <li><a class="dropdown-item text-light" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                  </ul>
+              </li>
+              
+           
+          {% else %}
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
+              </li>
+
+          {% endif %}
+
+
+
+      </ul>
+    </div>
+    <a href="#"><i class="bi bi-twitter text-light"></i> </a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#"><i class="bi bi-instagram text-light"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#"><i class="bi bi-whatsapp text-light"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="#"><i class="bi bi-facebook text-light"></i></a>
+  </div>
+</nav>
+</div>
+{#    <div class="container">#}
+        {% block content %}
+
+        {% endblock %}
+{#    </div>#}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

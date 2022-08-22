@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static%}
+{% block title %} Conferences{% endblock %}
+{% block content %}
+    <div class="container-fluid pt-4 pb-5  text-light">
+
+{#        <button type="submit" class="btn btn-primary"></button>#}
+    {% if request.user.is_authenticated %}
+   
+    <div class="mt-5  text-end pb-2 sticky-top">
+        <a href="{% url 'add-conference' %}" class="btn btn-secondary ">Add Conference</a>
+    </div>
+    {% endif %}
+        
+        <div class="container pt-2 mt-5 ">
+            <h1> Join Conference here!</h1>
+            <div class="row">
+            <div class="col pt-2">
+                {% for conference in conferences %}
+       
+
+        <a style="text-decoration: none;" href="{% url 'conference-detail' conference.id %}">
+            <div class=" mt-3 p-3 bg-dark text-white rounded-5 ">
+            <h1>{{ conference.title|capfirst }}</h1>
+            <p>{{ conference.venue }}</p>
+            <p>Days To Go :  {{ conference.Days_till }} </p>
+            
+            
+                                                    
+  <div class="spinner-grow text-light"></div>
+  <div class="spinner-grow text-primary"></div>
+  <div class="spinner-grow text-success"></div>
+  <div class="spinner-grow text-info"></div>
+  <div class="spinner-grow text-warning"></div>
+  <div class="spinner-grow text-danger"></div>
+  <div class="spinner-grow text-warning"></div>
+  <div class="spinner-grow text-dark"></div>
+  <div class="spinner-grow text-light"></div>
+          </div></a>
+       
+
+
+        {% endfor %}
+
+        
+            </div>
+            <div class="col-md-4"></div>
+        
+    </div>
+    </div>
+</div>
+</div>
+{% endblock %}
